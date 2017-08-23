@@ -47,6 +47,9 @@ class JIRAClient(object):
         request = requests.put(url, data=data, headers=headers, auth=self.auth)
         return (request.status_code == 204) or (request.status_code == 200)
 
+    def create_issue(self, fields):
+        return None
+
     def assign(self, issue_key, name):
         url = urljoin(self.rest_base_url, 'issue/%s/assignee' % issue_key)
         headers = {'content-type': 'application/json'}
